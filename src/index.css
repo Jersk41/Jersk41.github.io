@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-terminal: Fira Code, monospace;
+
+  --color-night-dark: #2E3440;
+  --color-night: #3B4252;
+  --color-night-light: #434C5E;
+  --color-night-lighter: #4C566A;
+  --color-snow-lightest: #D8DEE9;
+  --color-snow-lighter: #E5E9F0;
+  --color-snow-light: #ECEFF4;
+  --color-frost-green: #8FBCBB;
+  --color-frost-cyan: #88C0D0;
+  --color-frost-blue: #81A1C1;
+  --color-frost-darkblue: #5E81AC;
+  --color-aurora-red: #BF616A;
+  --color-aurora-orange: #D08770;
+  --color-aurora-yellow: #EBCB8B;
+  --color-aurora-green: #A3BE8C;
+  --color-aurora-purple: #B48EAD;
+}
+
+html, body {
+  @apply bg-night-dark;
+}
+
+@layer utilities {
+  @keyframes fade-in-fast {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animate-fade-in-fast {
+    animation: fade-in-fast 0.3s ease-in-out;
+  }
+
+  .animate-blink {
+    animation: blink 1s step-start infinite;
+  }
+}
