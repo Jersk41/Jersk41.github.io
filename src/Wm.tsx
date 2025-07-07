@@ -1,5 +1,10 @@
-import { useState } from "react";
+import { ReactNode } from "react";
 import { Rnd } from "react-rnd";
+
+interface Size {
+  width: string | number;
+  height: string | number;
+}
 
 const windows = [
   {
@@ -24,7 +29,16 @@ const windows = [
   }
 ];
 
-const Window = ({ title, defaultPos, children }) => {
+interface WindowProps {
+  title: string;
+  defaultPos?: { 
+    x: number;
+    y: number;
+  } & Size,
+  children: ReactNode;
+}
+
+const Window = ({ title, defaultPos, children }: WindowProps) => {
   return (
     <Rnd
       default={defaultPos}

@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 type IconType = {
   id: string;
   label: string;
-  content: string;
+  content: ReactNode;
+}
+
+interface DesktopIconProps {
+  label: string;
+  onClick: () => void;
+}
+
+interface WindowProps {
+  title: string;
+  content: ReactNode;
+  onClose: () => void;
 }
 
 const icons: IconType[] = [
@@ -12,7 +23,7 @@ const icons: IconType[] = [
   { id: "contact", label: "Contact", content: "Email: me@example.com\nGitHub: github.com/me" }
 ];
 
-const DesktopIcon = ({ label, onClick }) => (
+const DesktopIcon = ({ label, onClick }: DesktopIconProps) => (
   <div
     onClick={onClick}
     className="flex flex-col items-center justify-center cursor-pointer text-snow-light hover:opacity-90"
@@ -24,7 +35,7 @@ const DesktopIcon = ({ label, onClick }) => (
   </div>
 );
 
-const Window = ({ title, content, onClose }) => (
+const Window = ({ title, content, onClose }: WindowProps) => (
   <div className="absolute top-20 left-20 md:w-50 lg:w-69 h-64 bg-night-light border border-night-lighter shadow-xl rounded overflow-hidden">
     <div className="flex items-center justify-between bg-night-lighter px-3 py-2 text-snow-light text-sm">
       <span>{title}</span>
@@ -37,9 +48,9 @@ const Window = ({ title, content, onClose }) => (
 );
 
 const DesktopSimulation = () => {
-  const [openWindow, setOpenWindow] = useState(null);
+  const [openWindow, setOpenWindow] = useState<IconType | null>(null);
 
-  const handleOpen = (icon) => setOpenWindow(icon);
+  const handleOpen = (icon: IconType) => setOpenWindow(icon);
   const handleClose = () => setOpenWindow(null);
 
   return (

@@ -16,7 +16,7 @@ const Terminal = () => {
   const [lines, setLines] = useState(["Type 'help' to get started"]);
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>([]);
-  const [historyIndex, setHistoryIndex] = useState<number>(-1);
+  const [_historyIndex, setHistoryIndex] = useState<number>(-1);
   const [suggestion, setSuggestion] = useState<string>("");
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -59,7 +59,7 @@ const Terminal = () => {
     }
   };
 
-  const updateSuggestion = (value) => {
+  const updateSuggestion = (value: string) => {
     const match = Object.keys(commands).find((cmd) => cmd.startsWith(value));
     setSuggestion(match && match !== value ? match : "");
   };
