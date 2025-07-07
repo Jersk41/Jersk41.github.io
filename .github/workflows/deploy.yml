@@ -27,7 +27,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-      - uses: actions/deploy-pages@v4
+          
+      - uses: skywarth/vite-github-pages-deployer@v1.5.0
         with:
-          branch: gh-pages
-          folder: dist
+          build_path: ./dist
+          build_phase_node_env: production
+          package_manager: bun
