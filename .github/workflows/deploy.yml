@@ -18,18 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
       - run: bun install
       - run: bun run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: ./dist
           
-      - uses: skywarth/vite-github-pages-deployer@v1.5.0
+      - uses: actions/deploy-pages@v4.0.5
         with:
-          build_path: ./dist
-          build_phase_node_env: production
-          package_manager: bun
+          artifact_name: github-pages
