@@ -1,33 +1,88 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import TypeIt from "typeit-react";
+
+const sosmed = [
+  {
+    name: "Github",
+    text: "Jersk41",
+    link: "github.com/Jersk41",
+    style:
+      "text-slate-300 hover:text-slate-500 dark:text-slate-400 dark:hover:text-slate-200",
+  },
+  {
+    name: "LinkedIn",
+    text: "Japar Sidik",
+    link: "linkedin.com/in/japar-sidik-327aa3212/",
+    style: "text-blue-500 hover:text-blue-700",
+  },
+  {
+    name: "Email",
+    text: "japarssidik820@gmail.com",
+    link: "mailto:japarssidik820@gmail.com",
+    style: "text-green-500 hover:text-green-700",
+  },
+];
 
 const sections = [
   {
     title: "Hi, I'm Japar.",
     content:
-      "I'm a web developer with a passion for Linux customization, AI, and writing clean backend code. Let's scroll through my story.",
+      "Welcome to my portfolio! I'm a web developer with a passion for creating dynamic and engaging web applications. \nLet's scroll through my story.",
   },
   {
     title: "Skills",
     content:
-      "Languages: JavaScript, TypeScript, Python, C++\nFrameworks: React, Express, Vite\nTools: Git, Docker, TailwindCSS",
+      "Languages:\nPHP, JavaScript, TypeScript, Python \nFrameworks/Library:\nLaravel, React, Express, Vite, TailwindCSS\nTools:\nGit, Docker",
   },
   {
     title: "Projects",
-    content: "See my latest projects below...",
-    isButton: true,
+    content: (
+      <>
+        <TypeIt
+          as="div"
+          options={{
+            speed: 40,
+            waitUntilVisible: true,
+          }}
+        >
+          See my latest projects below...
+        </TypeIt>
+        <NavLink
+          to="/projects"
+          className="mt-6 px-4 py-2 border border-frost-green text-frost-green hover:bg-frost-green hover:text-night-dark transition rounded"
+        >
+          See My Projects
+        </NavLink>
+      </>
+    ),
   },
   {
     title: "Contact Me",
-    content:
-      "Email: me@example.com\nGitHub: github.com/me\nLinkedIn: linkedin.com/in/me",
+    content: (
+      <div className="text-sm md:text-lg max-w-md md:max-w-2xl px-2 text-center">
+        {sosmed.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-row justify-center items-center space-x-2 text-md"
+          >
+            <div className="text-white">{item.name}:</div>
+            <TypeIt
+              className={item.style}
+              options={{ waitUntilVisible: true, cursor: false, nextStringDelay: 1000 }}
+            >
+              <a href={item.link}>{item.text}</a>
+            </TypeIt>
+          </div>
+        ))}
+      </div>
+    ),
   },
 ];
 
 const ScrollStoryPortfolio = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +113,7 @@ const ScrollStoryPortfolio = () => {
             }`}
           />
         ))}
+        {/* <div className="w-3 h-3 rounded-full transition-colors duration-300 bg-frost-cyan" /> */}
       </nav>
 
       {sections.map((section, index) => (
@@ -65,33 +121,34 @@ const ScrollStoryPortfolio = () => {
           key={index}
           className="min-h-screen snap-start flex flex-col items-center justify-center px-4 py-16 md:p-8 border-b border-night-light text-center"
         >
+          {index === 0 && (
+            <img
+              src="https://avatars.githubusercontent.com/u/63460438?v=4"
+              alt="Avatar"
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 animate-fade-in"
+            />
+          )}
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-frost-cyan animate-fade-in">
             {section.title}
           </h2>
 
-          {activeIndex === index ? (
+          {typeof section.content != "string" ? (
+            section.content
+          ) : activeIndex === index ? (
             <TypeIt
-            key={index}
-            className="text-sm md:text-lg max-w-md md:max-w-2xl text-center whitespace-pre-line px-2"
-            options={{
-              speed: 40,
-              waitUntilVisible: true,
-            }}>
+              key={index}
+              className="text-sm md:text-lg max-w-md md:max-w-2xl text-center whitespace-pre-line px-2"
+              options={{
+                speed: 40,
+                waitUntilVisible: true,
+              }}
+            >
               {section.content}
             </TypeIt>
           ) : (
             <div className="text-sm md:text-lg max-w-md md:max-w-2xl text-center whitespace-pre-line px-2">
               {section.content}
             </div>
-          )}
-          
-          {section.isButton && (
-            <button
-              onClick={() => navigate("/projects")}
-              className="mt-6 px-4 py-2 border border-frost-green text-frost-green hover:bg-frost-green hover:text-night-dark transition rounded"
-            >
-              See My Projects
-            </button>
           )}
         </section>
       ))}
@@ -104,4 +161,3 @@ const ScrollStoryPortfolio = () => {
 };
 
 export default ScrollStoryPortfolio;
-

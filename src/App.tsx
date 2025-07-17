@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router';
 import Story from './Story';
-import Projects from './Projects';
+import Desktop from './Desktop';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Story />} />
-      <Route path="/projects" element={<Projects />} />
+      <Route path="/projects" element={<Desktop/>} />
     </Routes>
   );
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export const commands: Record<string, string> = {
+const commands: Record<string, string> = {
   help: "Available Commands: 'help','whoami','skills','projects','contact'",
   whoami:
     "I am web developer, student, and tech enthusiast. I like to learn new things about technology expecially software, linux, and AI.",
@@ -9,14 +9,14 @@ export const commands: Record<string, string> = {
   projects:
     "1. Mujawwad Rhythm Classifier\n2. TTS Discord Bot include AI\n3. Dotfiles\n4. Boedin Chat's Frontend (Web for Chatting build with websocket)",
   contact:
-    "Email: me@example.com\nGithub: github.com/me\nLinkedIn: linkedin.com/in/me\nTwitter: twitter.com/me",
+    "Email: japarssidik820@gmail.com\nGithub: github.com/me\nLinkedIn: linkedin.com/in/me\nTwitter: twitter.com/me",
 };
 
 const Terminal = () => {
   const [lines, setLines] = useState(["Type 'help' to get started"]);
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<string[]>([]);
-  const [_historyIndex, setHistoryIndex] = useState<number>(-1);
+  const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const [suggestion, setSuggestion] = useState<string>("");
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -37,6 +37,7 @@ const Terminal = () => {
     handleCommand(trimmed);
     setHistory((prevHistory) => [...prevHistory, trimmed]);
     setHistoryIndex(-1);
+    console.log(`Current History Index: ${historyIndex}`);
     setInput("");
   };
 
