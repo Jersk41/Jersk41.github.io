@@ -1,27 +1,12 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import TypeIt from "typeit-react";
+import data from "./data.json";
 
-const sosmed = [
-  {
-    name: "Github",
-    text: "Jersk41",
-    link: "github.com/Jersk41",
-    style:
-      "text-slate-300 hover:text-slate-500 dark:text-slate-400 dark:hover:text-slate-200",
-  },
-  {
-    name: "LinkedIn",
-    text: "Japar Sidik",
-    link: "linkedin.com/in/japar-sidik-327aa3212/",
-    style: "text-blue-500 hover:text-blue-700",
-  },
-  {
-    name: "Email",
-    text: "japarssidik820@gmail.com",
-    link: "mailto:japarssidik820@gmail.com",
-    style: "text-green-500 hover:text-green-700",
-  },
+const contacts = [
+  ...data.contacts.filter((contact) => contact.name === "Github").flat(),
+  ...data.contacts.filter((contact) => contact.name === "LinkedIn").flat(),
+  ...data.contacts.filter((contact) => contact.name === "Email").flat()
 ];
 
 const sections = [
@@ -61,7 +46,7 @@ const sections = [
     title: "Contact Me",
     content: (
       <div className="text-sm md:text-lg max-w-md md:max-w-2xl px-2 text-center">
-        {sosmed.map((item, index) => (
+        {contacts.map((item, index) => (
           <div
             key={index}
             className="flex flex-row justify-center items-center space-x-2 text-md"
@@ -80,9 +65,8 @@ const sections = [
   },
 ];
 
-const ScrollStoryPortfolio = () => {
+const Portofolio = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,13 +81,13 @@ const ScrollStoryPortfolio = () => {
         }
       });
     };
+    console.log("Contact: ", contacts)
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="w-full h-full scroll-smooth snap-y snap-mandatory overflow-y-scroll bg-night-dark text-snow-light font-terminal">
-      {/* Mobile-friendly padding & layout */}
       <nav className="hidden md:block fixed left-4 top-1/2 transform -translate-y-1/2 z-50 space-y-2">
         {sections.map((_, index) => (
           <div
@@ -113,7 +97,6 @@ const ScrollStoryPortfolio = () => {
             }`}
           />
         ))}
-        {/* <div className="w-3 h-3 rounded-full transition-colors duration-300 bg-frost-cyan" /> */}
       </nav>
 
       {sections.map((section, index) => (
@@ -160,4 +143,4 @@ const ScrollStoryPortfolio = () => {
   );
 };
 
-export default ScrollStoryPortfolio;
+export default Portofolio;

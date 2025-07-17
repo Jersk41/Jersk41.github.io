@@ -33,10 +33,46 @@ const Window = ({ title, content, onClose }: WindowProps) => (
   </div>
 );
 
+const ProjectWindow = ({
+  handleProjectClick,
+}: {
+  handleProjectClick: (project: ProjectsDataType) => void;
+}) => {
+  return (
+    <div className="space-y-4 mb-6">
+      {data.projects.map((project) => (
+        <div
+          key={project.name}
+          className="border border-night-lighter shadow-md rounded p-2"
+        >
+          <div className="flex items-center justify-between">
+            <h2
+              className="text-lg text-snow-light cursor-pointer hover:text-frost-cyan"
+              onClick={() => handleProjectClick(project)}
+            >
+              {project.name}
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {project.technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="bg-frost-blue text-night-dark rounded-full px-2 py-1 text-xs font-bold"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Desktop = () => {
   const [openWindow, setOpenWindow] = useState<IconType | null>(null);
   const [selectedProject, setSelectedProject] =
-    useState<ProjectsDataType | null>(null); // State untuk menyimpan project yang dipilih
+    useState<ProjectsDataType | null>(null);
   const [isProjectViewedOnce, setIsProjectViewedOnce] =
     useState<boolean>(false);
 
@@ -74,7 +110,7 @@ const Desktop = () => {
       id: "contact",
       label: "Contact",
       content:
-        "> Email: japarssidik820@gmail.com\n> GitHub: github.com/Jersk41",
+        "> Email: japarssidik820@gmail.com\n> GitHub: https://github.com/Jersk41",
     },
   ];
 
@@ -95,35 +131,7 @@ const Desktop = () => {
       {openWindow && openWindow.label === "Projects" && (
         <Window
           title={openWindow.label}
-          content={
-            <div className="space-y-4 mb-6">
-              {data.projects.map((project) => (
-                <div
-                  key={project.name}
-                  className="border border-night-lighter shadow-md rounded p-2"
-                >
-                  <div className="flex items-center justify-between">
-                    <h2
-                      className="text-lg text-snow-light cursor-pointer hover:text-frost-cyan"
-                      onClick={() => handleProjectClick(project)}
-                    >
-                      {project.name}
-                    </h2>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="bg-frost-blue text-night-dark rounded-full px-2 py-1 text-xs font-bold"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          }
+          content={<ProjectWindow handleProjectClick={handleProjectClick} />}
           onClose={handleClose}
         />
       )}
