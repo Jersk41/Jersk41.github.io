@@ -1,0 +1,226 @@
+{
+  "overview": {
+    "name": "Japar Sidik",
+    "title": "Fullstack Developer",
+    "location": "Bandung, Indonesia",
+    "avatar": "https://avatars.githubusercontent.com/u/63460438?v=4",
+    "headline": "From Santri to Worlds",
+    "description": "I am a Fullstack Developer with a passion for creating dynamic and responsive web applications. I specialize in both frontend and backend development, ensuring a seamless user experience and robust functionality.",
+    "cover_letter": "https://bit.ly/CVJaparSidik"
+  },
+  "education": [
+    {
+      "degree": "Bachelor",
+      "field_of_study": "Informatics Engineering/Computer Science",
+      "institution": "STMIK IKMI Cirebon",
+      "location": "Bandung, Indonesia",
+      "start_year": "2021",
+      "end_year": "2025",
+      "description": ""
+    },
+    {
+      "degree": "Vocational High School",
+      "field_of_study": "Software Engineering",
+      "institution": "SMK Al-Falah Nagreg",
+      "location": "Nagreg, Bandung, Indonesia",
+      "start_year": "2018",
+      "end_year": "2021",
+      "description": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "PHP",
+      "level": "Intermediate",
+      "tags": ["web", "backend"],
+      "description": "Proficient in PHP for server-side scripting, with experience in building RESTful APIs and web applications."
+    },
+    {
+      "name": "JavaScript",
+      "level": "Advanced",
+      "tags": ["web", "frontend", "backend"],
+      "description": "Proficient in JavaScript, including ES6+ features, asynchronous programming, and modern frameworks."
+    },
+    {
+      "name": "React",
+      "level": "Advanced",
+      "tags": ["web", "frontend", "library"],
+      "description": "Experienced in building user interfaces with React, utilizing hooks, context API, and state management libraries."
+    },
+    {
+      "name": "Node.js",
+      "level": "Intermediate",
+      "tags": ["web", "runtime", "backend"],
+      "description": "Skilled in server-side development with Node.js, including RESTful API  development and database integration."
+    },
+    {
+      "name": "CSS",
+      "level": "Advanced",
+      "tags": ["web", "frontend"],
+      "description": "Expert in CSS, including Flexbox, Grid, and responsive design techniques."
+    },
+    {
+      "name": "HTML",
+      "level": "Advanced",
+      "tags": ["web", "frontend"],
+      "description": "Proficient in HTML5, semantic markup, and accessibility standards."
+    },
+    {
+      "name": "TypeScript",
+      "level": "Intermediate",
+      "tags": ["web", "frontend", "backend"],
+      "description": "Familiar with TypeScript for building scalable and maintainable applications."
+    },
+    {
+      "name": "Git",
+      "level": "Advanced",
+      "tags": ["vcs", "tools"],
+      "description": "Experienced in version control with Git, including branching, merging, and pull requests."
+    },
+    {
+      "name": "Python",
+      "level": "Intermediate",
+      "tags": ["backend"],
+      "description": "Knowledgeable in Python for scripting and automation tasks, with experience in data analysis and machine learning."
+    },
+    {
+      "name": "Linux",
+      "level": "Intermediate",
+      "tags": ["os"],
+      "description": "Familiar with Linux command line, shell scripting, and system administration tasks."
+    },
+    {
+      "name": "SQL",
+      "level": "Intermediate",
+      "tags": ["backend", "database"],
+      "description": "Knowledgeable in SQL for database management and querying."
+    },
+    {
+      "name": "MongoDB",
+      "level": "Intermediate",
+      "tags": ["backend", "database"],
+      "description": "Familiar with MongoDB for NoSQL database solutions, including CRUD operations and aggregation."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfolio Website",
+      "description": "A personal portfolio website showcasing my skills and projects.",
+      "technologies": ["TypeScript", "React", "TailwindCSS", "Vite", "Bun"],
+      "link": "https://Jersk41.github.io"
+    },
+    {
+      "name": "Mujawwad Rhythm Classifier",
+      "description": "A deep learning model to classify Qur'anic recitation rhythm using LSTM. This project is also for finishing my undergraduate thesis. Motivated by my education as a Santri (Islamic boarding school student) and my interest in Technology.",
+      "technologies": [
+        "Python",
+        "Deep Learning",
+        "Machine Learning",
+        "Hugging Face"
+      ],
+      "link": "https://huggingface.co/spaces/JaparSidik4/Mujawwad-Nagham-Classifier"
+    },
+    {
+      "name": "Discord TTS Bot",
+      "description": "A Discord bot that converts text to speech using Google TTS API or ElevenLabs API (for more rich voices), allowing users to listen to messages in voice channels. This bot also powered by AI chat capabilities.",
+      "technologies": [
+        "JavaScript",
+        "Node.js",
+        "Discord.js",
+        "Google TTS API",
+        "ElevenLabs"
+      ],
+      "link": "https://discord.gg/s5GujHGqGM"
+    },
+    {
+      "name": "Dotfiles",
+      "description": "A repository of my personal dotfiles, including configurations for Zsh, Git, and Chezmoi. This project is a part of my journey in customizing my development environment.",
+      "technologies": ["Linux", "Zsh", "Ricing", "Git", "Chezmoi"],
+      "link": "https://github.com/Jersk41/dotfiles"
+    },
+    {
+      "name": "GRUB Theme - VTuber Edition (Airani Iofifteen)",
+      "description": "A custom GRUB theme featuring Airani Iofifteen, a VTuber from Hololive Indonesia.",
+      "technologies": ["GRUB", "Linux", "Theme Design"],
+      "link": "https://www.gnome-look.org/p/1760905/"
+    },
+    {
+      "name": "Boedin Chat Frontend",
+      "description": "A WebSocket-based chat frontend built with React + Vite and powered by Shadcn/ui. This project is part of open-source collaboration project in IMPHNEN Community.",
+      "technologies": [
+        "JavaScript",
+        "React",
+        "TailwindCSS",
+        "Vite",
+        "Node.js",
+        "WebSocket",
+        "IMPHNEN"
+      ],
+      "link": "https://github.com/Jersk41/boedin-chat-frontend"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Fullstack Developer",
+      "company": "Freelance",
+      "location": "Remote",
+      "start_date": "2022-01-01",
+      "end_date": "Present",
+      "description": "Developing and maintaining web applications using modern technologies such as React, Node.js, and PHP. Collaborating with clients to deliver high-quality software solutions."
+    },
+    {
+      "title": "Admintrator",
+      "company": "Fulltime",
+      "location": "On-Site",
+      "start_date": "2021-01-01",
+      "end_date": "Present",
+      "description": ""
+    }
+  ],
+  "certifications": [],
+  "contacts": [
+    {
+      "name": "Email",
+      "text": "japarssidik820@gmail.com",
+      "link": "mailto:japarssidik820@gmail.com",
+      "style": "text-green-500 hover:text-green-700"
+    },
+    {
+      "name": "Github",
+      "text": "Jersk41",
+      "link": "https://github.com/Jersk41",
+      "style": "text-slate-300 hover:text-slate-500 dark:text-slate-400 dark:hover:text-slate-200"
+    },
+    {
+      "name": "LinkedIn",
+      "text": "Japar Sidik",
+      "link": "https://linkedin.com/in/japar-sidik-327aa3212/",
+      "style": "text-blue-500 hover:text-blue-700"
+    },
+    {
+      "name": "Twitter",
+      "text": "Sidik",
+      "link": "https://twitter.com/Sidik84503300",
+      "style": "text-blue-400 hover:text-blue-600"
+    },
+    {
+      "name": "Instagram",
+      "text": "jafar_sidik4",
+      "link": "https://instagram.com/japar_sidik4",
+      "style": "text-pink-400 hover:text-pink-600"
+    },
+    {
+      "name": "Discord",
+      "text": "JafarS (z4pr)",
+      "link": "https://discord.com/users/z4pr",
+      "style": "text-purple-500 hover:text-purple-700"
+    },
+    {
+      "name": "Ko-fi",
+      "text": "My ko-fi profile",
+      "link": "https://ko-fi.com/japarsidik",
+      "style": "text-yellow-500 hover:text-yellow-700"
+    }
+  ],
+  "last_edited": "2025-07-16T19:38:56.559Z"
+}
