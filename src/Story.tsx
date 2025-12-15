@@ -6,14 +6,33 @@ import data from "./data.json";
 const contacts = [
   ...data.contacts.filter((contact) => contact.name === "Github").flat(),
   ...data.contacts.filter((contact) => contact.name === "LinkedIn").flat(),
-  ...data.contacts.filter((contact) => contact.name === "Email").flat()
+  ...data.contacts.filter((contact) => contact.name === "Email").flat(),
 ];
 
 const sections = [
   {
     title: "Hi, I'm Japar.",
-    content:
-      "Welcome to my portfolio! I'm a web developer with a passion for creating dynamic and engaging web applications. \nLet's scroll through my story.",
+    content: (
+      <>
+        <TypeIt
+          as="div"
+          options={{
+            speed: 40,
+            waitUntilVisible: true,
+          }}
+        >
+          Welcome to my portfolio! <br />I'm a web developer with a passion for
+          creating dynamic and engaging web applications. <br />Let's scroll through
+          my story.
+        </TypeIt>
+        <NavLink
+          to={data.overview.cover_letter}
+          className="mt-6 px-4 py-2 border border-frost-green text-frost-green hover:bg-frost-green hover:text-night-dark transition rounded"
+        >
+          Download CV
+        </NavLink>
+      </>
+    ),
   },
   {
     title: "Skills",
@@ -54,7 +73,11 @@ const sections = [
             <div className="text-white">{item.name}:</div>
             <TypeIt
               className={item.style}
-              options={{ waitUntilVisible: true, cursor: false, nextStringDelay: 1000 }}
+              options={{
+                waitUntilVisible: true,
+                cursor: false,
+                nextStringDelay: 1000,
+              }}
             >
               <a href={item.link}>{item.text}</a>
             </TypeIt>
@@ -81,7 +104,7 @@ const Portofolio = () => {
         }
       });
     };
-    console.log("Contact: ", contacts)
+    console.log("Contact: ", contacts);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -137,7 +160,7 @@ const Portofolio = () => {
       ))}
 
       <footer className="text-center text-xs text-frost-green py-4">
-        © {new Date().getFullYear()} Japar — Made with ☕ + 🐧
+        {new Date().getFullYear()} Japar Sidik — Made with ☕ + 🐧
       </footer>
     </div>
   );
