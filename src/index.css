@@ -1,47 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:wght@300..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-terminal: Fira Code, monospace;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
 
-  --color-night-dark: #2E3440;
-  --color-night: #3B4252;
-  --color-night-light: #434C5E;
-  --color-night-lighter: #4C566A;
-  --color-snow-lightest: #D8DEE9;
-  --color-snow-lighter: #E5E9F0;
-  --color-snow-light: #ECEFF4;
-  --color-frost-green: #8FBCBB;
-  --color-frost-cyan: #88C0D0;
-  --color-frost-blue: #81A1C1;
-  --color-frost-darkblue: #5E81AC;
-  --color-aurora-red: #BF616A;
-  --color-aurora-orange: #D08770;
-  --color-aurora-yellow: #EBCB8B;
-  --color-aurora-green: #A3BE8C;
-  --color-aurora-purple: #B48EAD;
+  --color-obsidian-darker: #020617; /* Slate 950 */
+  --color-obsidian-dark: #0f172a;   /* Slate 900 */
+  --color-obsidian: #1e293b;        /* Slate 800 */
+  --color-obsidian-light: #334155;  /* Slate 700 */
+  
+  --color-accent-primary: #38bdf8;  /* Sky 400 */
+  --color-accent-secondary: #c084fc; /* Purple 400 */
+  --color-accent-tertiary: #fbbf24;  /* Amber 400 */
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-html, body {
-  @apply bg-night-dark;
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-obsidian-darker text-slate-300 font-sans antialiased selection:bg-accent-primary/30 selection:text-white;
+  background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 @layer utilities {
-  @keyframes fade-in-fast {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  .glass-panel {
+    @apply bg-obsidian-dark/50 backdrop-blur-md border border-slate-700/50 shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-primary to-accent-secondary;
   }
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  .animate-fade-in-fast {
-    animation: fade-in-fast 0.3s ease-in-out;
-  }
-
-  .animate-blink {
-    animation: blink 1s step-start infinite;
+  .tech-badge {
+    @apply px-2 py-1 text-xs font-mono rounded bg-slate-800/80 border border-slate-700 text-slate-400 hover:border-accent-primary/50 hover:text-accent-primary transition-colors cursor-default;
   }
 }
